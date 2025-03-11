@@ -10,40 +10,84 @@
 <style>
     /* Custom animation for hover effects */
     .sidebar-item, .profile-container, .notification-container, .logo img, .mcd-logo img {
-            transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    .sidebar-item:hover, .profile-container:hover, .notification-container:hover, .logo img:hover, .mcd-logo img:hover {
+        transform: scale(1.1);
+    }
+
+    /* Responsive layout for non-landscape modes */
+    @media (orientation: portrait), (max-width: 1024px) {
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: white;
+            border-radius: 27px;
+            padding: 10px 16px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
         }
-        .sidebar-item:hover, .profile-container:hover, .notification-container:hover, .logo img:hover, .mcd-logo img:hover {
-            transform: scale(1.1);
+        .logo {
+            display: flex;
+            align-items: center;
         }
-    /* Vertical Sidebar - Mobile */
-    @media (max-width: 767px) {
-        .vertical-sidebar {
-            position: fixed;
-            bottom: 4px;
-            left: 50%;
-            transform: translateX(-50%);
-            flex-direction: row;
-            width: auto;
-            padding: 8px;
-            border-radius: 20px;
-            background-color: rgba(31, 41, 55, 0.9);
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .header-content {
+            flex-grow: 1;
+            margin: 0 16px;
         }
         .profile-sidebar {
-            position: fixed;
-            top: 40px;
-            right: 40%;
+            position: absolute;
+            top: 43px;
+            right: 20px;
+            height: 0px;
             flex-direction: row;
-            width: auto;
-            padding: 8px;
-            border-radius: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: none;
+        }
+        .vertical-sidebar {
+            position: fixed;
+            bottom: 10px;
+        }
+
+        /* Move "OTP Confirmation" text outside the header padding */
+        .header-container {
+            width: 100%;
+            max-width: 6xl;
+            padding: 0 16px;
+        }
+        .otp-text {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            padding-left: 16px; /* Align with the header padding */
+        }
+        .otp-text1 {
+            display: none;
+        }
+
+        /* Stack left and right panels vertically */
+        .main-content {
+            flex-direction: row;
+        }
+        .left-panel {
+            width: 100%;
+        }
+        .right-panel {
+            width: 100%;
         }
     }
 
     /* Vertical Sidebar - Larger Screens */
     @media (min-width: 768px) {
         .vertical-sidebar {
-            position: fixed;
+            position: absolute;
             left: 5rem;
             top: 50%;
             transform: translateY(-50%);
@@ -54,25 +98,34 @@
     /* Profile Sidebar - Larger Screens */
     @media (min-width: 768px) {
         .profile-sidebar {
-            position: fixed;
+            position: absolute;
             left: 5rem;
             bottom: 5%;
             flex-direction: column;
             display: flex;
         }
+        .otp-text {
+            display: none;
+        }
+
     }
 </style>
-<body class="flex flex-col items-center bg-gradient-to-r from-[#fef6f3] to-[#f5f5f5] font-['Poppins'] min-h-screen py-8">
-    <!-- Header -->
-    <div class="header w-full max-w-6xl px-4 flex justify-between items-center">
-        <div class="header-left flex items-center gap-4">
-            <div class="logo flex items-center gap-3">
-                <a href="#">
-                    <img src="NewLogo.png" alt="Order Status Logo" class="w-12 h-12 rounded-lg hover:scale-110">
-                </a>
-                <a href="#" class="text-2xl font-bold text-gray-800 hover:text-red-500 transition-colors">OTP Confirmation</a>
+<body class="flex flex-col items-center bg-gradient-to-r from-[#ffffff] to-[#fef6f3] font-['Poppins'] min-h-screen py-8">
+    <!-- Header Container -->
+    <div class="header-container w-full">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left flex items-center gap-4">
+                <div class="logo flex items-center gap-3">
+                    <a href="#">
+                        <img src="NewLogo.png" alt="Order Status Logo" class="w-20 rounded-lg hover:scale-110">
+                    </a>
+                    <a href="#" class="otp-text1 text-2xl font-bold text-gray-800 hover:text-red-500 transition-colors">OTP Confirmation</a>
+                </div>
             </div>
         </div>
+        <!-- OTP Confirmation Text -->
+        <a href="#" class="otp-text text-2xl font-bold text-gray-800 hover:text-red-500 transition-colors">OTP Confirmation</a>
     </div>
     
     <!-- Sidebar -->
@@ -92,13 +145,13 @@
         <div class="sidebar-item w-10 h-10 flex justify-center items-center bg-gray-700 rounded-full hover:bg-orange-500">
             <img src="Vector (4).png" alt="z" class="w-4 h-4">
         </div>
-        <div class="sidebar-item w-10 h-10 flex justify-center items-center bg-orange-500 rounded-full hover:bg-orange-500">
+        <div class="sidebar-item w-10 h-10 flex justify-center items-center hover:bg-orange-500">
             <img src="Customer Display.png" alt="z" class="w-10 h-10">
         </div>
     </div>
 
     <!-- Profile Sidebar -->
-    <div class="profile-sidebar bg-white rounded-3xl p-2 flex gap-1 shadow-2xl transition-all duration-300">
+    <div class="profile-sidebar flex gap-1 transition-all duration-300">
         <div class="profile-container w-10 h-10 flex justify-center items-center bg-white rounded-full hover:bg-gray-200">
             <img src="Frame 8.png" alt="Profile" class="w-10.5 h-10.5 rounded-full cursor-pointer">
         </div>
@@ -108,7 +161,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="flex-1 flex w-full max-w-4xl mt-6 bg-white shadow-lg rounded-lg">
+    <div class="flex-1 flex w-full max-w-4xl mt-6 bg-white shadow-lg rounded-lg main-content">
         <!-- Left Panel (User List) -->
         <div class="w-80 bg-[#fef6f3] rounded-l-lg border-r border-gray-300">
             <!-- Pending Section -->
@@ -215,7 +268,7 @@
         </div>
 
         <!-- Right Panel (OTP Confirmation) -->
-        <div class="flex-1 flex flex-col items-start justify-start">
+        <div class="flex-1 flex flex-col w-full items-start justify-start right-panel">
             <button class="self-start text-black p-6 font-bold underline">Close</button>
             <div class="flex flex-col items-center w-full p-6">
                 <img src="Ellipse 38 (10).png" class="w-20 h-20 rounded-full mb-4">
