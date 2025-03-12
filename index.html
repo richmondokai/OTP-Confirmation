@@ -31,10 +31,11 @@
         .logo {
             display: flex;
             align-items: center;
+            left: 50px;
         }
         .logo img {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
         }
         .header-content {
@@ -43,8 +44,8 @@
         }
         .profile-sidebar {
             position: absolute;
-            top: 43px;
-            right: 20px;
+            top: 40px;
+            right: 30px;
             height: 0px;
             flex-direction: row;
             box-shadow: none;
@@ -88,7 +89,7 @@
     @media (min-width: 768px) {
         .vertical-sidebar {
             position: absolute;
-            left: 5rem;
+            left: 7rem;
             top: 50%;
             transform: translateY(-50%);
             flex-direction: column;
@@ -99,13 +100,17 @@
     @media (min-width: 768px) {
         .profile-sidebar {
             position: absolute;
-            left: 5rem;
+            left: 7rem;
             bottom: 5%;
             flex-direction: column;
             display: flex;
         }
         .otp-text {
             display: none;
+        }
+        .logo {
+            position: absolute;
+            left: 140px;
         }
 
     }
@@ -118,7 +123,7 @@
             <div class="header-left flex items-center gap-4">
                 <div class="logo flex items-center gap-3">
                     <a href="#">
-                        <img src="NewLogo.png" alt="Order Status Logo" class="w-20 rounded-lg hover:scale-110">
+                        <img src="Logo (1).png" alt="Order Status Logo" class="w-8 rounded-lg hover:scale-110">
                     </a>
                     <a href="#" class="otp-text1 text-2xl font-bold text-gray-800 hover:text-red-500 transition-colors">OTP Confirmation</a>
                 </div>
