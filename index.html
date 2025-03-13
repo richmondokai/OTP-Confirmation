@@ -18,75 +18,67 @@
 
     /* Responsive layout for non-landscape modes */
     @media (orientation: portrait), (max-width: 1200px) {
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .header-container {
+            position: fixed;
+            top: 13px;
+            left: 0;
             width: 100%;
             background: white;
-            border-radius: 27px;
-            padding: 10px 16px;
+            z-index: 1000;
+            border-radius: 50px;
+            padding: 15px;
+            margin-top: 20px;
             box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
         }
         .logo {
             display: flex;
             align-items: center;
-            left: 50px;
         }
         .logo img {
             width: 35px;
             height: 35px;
             border-radius: 50%;
         }
-        .header-content {
-            flex-grow: 1;
-            margin: 0 16px;
-        }
         .profile-sidebar {
-            position: absolute;
-            top: 32px;
-            right: 30px;
-            height: 0px;
+            position: fixed;
+            top: 38px;
+            right: 10px;
             flex-direction: row;
-            box-shadow: none;
+            z-index: 1000;
         }
         .vertical-sidebar {
             position: fixed;
             bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        /* Move "OTP Confirmation" text outside the header padding */
-        .header-container {
-            width: 100%;
-            max-width: 6xl;
-            padding: 0 16px;
-        }
+        /* Move "OTP Confirmation" text to the left corner */
         .otp-text {
-            display: block;
-            margin-top: 10px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #1f2937;
-            padding-left: 16px; /* Align with the header padding */
+            position: absolute;
+            top: 120px; /* Adjust based on header height */
+            left: 16px; /* Align to the left corner */
+            font-size: 2rem; /* Increased font size */
+            font-weight: bold; /* Increased font weight */
+            color: #000000;
         }
         .otp-text1 {
             display: none;
         }
 
-        /* Stack left and right panels vertically */
+        /* Adjust main content to account for fixed header */
         .main-content {
-            flex-direction: row;
-        }
-        .left-panel {
-            width: 100%;
-        }
-        .right-panel {
-            width: 100%;
+            margin-top: 130px; /* Adjust based on header height */
         }
     }
 
     /* Vertical Sidebar - Larger Screens */
-    @media (min-width: 1201px) {
+    @media (min-width: 1200px) {
         .vertical-sidebar {
             position: absolute;
             left: 7rem;
@@ -101,6 +93,9 @@
             flex-direction: column;
             display: flex;
         }
+        .otp-text {
+            font-size: 3rem; 
+        }
 
         .otp-text {
             display: none;
@@ -109,13 +104,14 @@
             position: absolute;
             left: 140px;
         }
-
+        .main-content {
+            margin-top: 30px; /* Adjust based on header height */
+        }
     }
-
 </style>
 <body class="flex flex-col items-center bg-gradient-to-r from-[#ffffff] to-[#fef6f3] font-['Poppins'] min-h-screen py-8">
-    <!-- Header Container -->
-    <div class="header-container w-full">
+<div class="main-content">
+    <div class="header-container">
         <!-- Header -->
         <div class="header">
             <div class="header-left flex items-center gap-4">
@@ -127,9 +123,8 @@
                 </div>
             </div>
         </div>
-        <!-- OTP Confirmation Text -->
-        <a href="#" class="otp-text text-2xl font-bold text-gray-800 hover:text-red-500 transition-colors">OTP Confirmation</a>
     </div>
+    <a href="#" class="otp-text font-bold text-gray-800 hover:text-red-500 transition-colors">OTP Confirmation</a>
     
     <!-- Sidebar -->
     <div class="vertical-sidebar bg-gray-800 rounded-3xl p-2 flex gap-2 shadow-2xl transition-all duration-300">
@@ -152,6 +147,7 @@
             <img src="Customer Display.png" alt="z" class="w-10 h-10">
         </div>
     </div>
+</div>    
 
     <!-- Profile Sidebar -->
     <div class="profile-sidebar bg-white rounded-3xl p-2 flex gap-1 transition-all duration-300">
