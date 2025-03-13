@@ -17,7 +17,7 @@
     }
 
     /* Responsive layout for non-landscape modes */
-    @media (orientation: portrait), (max-width: 1024px) {
+    @media (orientation: portrait), (max-width: 1200px) {
         .header {
             display: flex;
             align-items: center;
@@ -44,7 +44,7 @@
         }
         .profile-sidebar {
             position: absolute;
-            top: 40px;
+            top: 32px;
             right: 30px;
             height: 0px;
             flex-direction: row;
@@ -86,7 +86,7 @@
     }
 
     /* Vertical Sidebar - Larger Screens */
-    @media (min-width: 768px) {
+    @media (min-width: 1201px) {
         .vertical-sidebar {
             position: absolute;
             left: 7rem;
@@ -94,10 +94,6 @@
             transform: translateY(-50%);
             flex-direction: column;
         }
-    }
-
-    /* Profile Sidebar - Larger Screens */
-    @media (min-width: 768px) {
         .profile-sidebar {
             position: absolute;
             left: 7rem;
@@ -105,6 +101,7 @@
             flex-direction: column;
             display: flex;
         }
+
         .otp-text {
             display: none;
         }
@@ -114,6 +111,7 @@
         }
 
     }
+
 </style>
 <body class="flex flex-col items-center bg-gradient-to-r from-[#ffffff] to-[#fef6f3] font-['Poppins'] min-h-screen py-8">
     <!-- Header Container -->
@@ -156,7 +154,7 @@
     </div>
 
     <!-- Profile Sidebar -->
-    <div class="profile-sidebar flex gap-1 transition-all duration-300">
+    <div class="profile-sidebar bg-white rounded-3xl p-2 flex gap-1 transition-all duration-300">
         <div class="profile-container w-10 h-10 flex justify-center items-center bg-white rounded-full hover:bg-gray-200">
             <img src="Frame 8.png" alt="Profile" class="w-10.5 h-10.5 rounded-full cursor-pointer">
         </div>
