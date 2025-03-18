@@ -12,280 +12,274 @@
         body {
             font-family: 'DM Sans', sans-serif;
         }
-    /* Custom animation for hover effects */
-    .sidebar-item, .profile-container, .notification-container, .logo img, .mcd-logo img {
-        transition: all 0.3s ease;
-    }
-    .sidebar-item:hover, .profile-container:hover, .notification-container:hover, .logo img:hover, .mcd-logo img:hover {
-        transform: scale(1.1);
-    }
 
-    /* Responsive layout for non-landscape modes */
-    @media (orientation: portrait), (max-width: 1200px) {
-        .header-container {
-            position: fixed;
-            top: 13px;
-            left: 0;
-            width: 100%;
-            background: white;
-            z-index: 1000;
-            border-radius: 50px;
-            padding: 15px;
-            margin-top: 20px;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        .logo img {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-        }
-        .profile-sidebar {
-            position: fixed;
-            top: 38px;
-            right: 10px;
-            flex-direction: row;
-            z-index: 1000;
-        }
-        .vertical-sidebar {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+        /* Media Queries for Landscape Orientation */
+        @media (orientation: landscape) and (max-width: 1024px) {
+            .flex-container {
+                flex-direction: row;
+            }
+            .sidebar {
+                width: 80px;
+            }
+            .main-content {
+                width: calc(100% - 80px);
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .user-list {
+                width: 100%;
+            }
+            .otp-confirmation {
+                width: 100%;
+            }
         }
 
-        /* Move "OTP Confirmation" text to the left corner */
-        .otp-text {
-            position: absolute;
-            top: 120px; /* Adjust based on header height */
-            left: 16px; /* Align to the left corner */
-            font-size: 2rem; /* Increased font size */
-            font-weight: bold; /* Increased font weight */
-            color: #000000;
-        }
-        .otp-text1 {
-            display: none;
-        }
-
-        /* Adjust main content to account for fixed header */
-        .main-content {
-            margin-top: 130px; /* Adjust based on header height */
-        }
-    }
-
-    /* Vertical Sidebar - Larger Screens */
-    @media (min-width: 1200px) {
-        .vertical-sidebar {
-            position: absolute;
-            left: 7rem;
-            top: 50%;
-            transform: translateY(-50%);
-            flex-direction: column;
-        }
-        .profile-sidebar {
-            position: absolute;
-            left: 7rem;
-            bottom: 5%;
-            flex-direction: column;
-            display: flex;
-        }
-        .otp-text {
-            font-size: 3rem; 
+        /* Media Queries for Tablets */
+        @media (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+            }
+            .main-content {
+                width: 100%;
+            }
+            .header h1 {
+                font-size: 20px;
+            }
+            .user-list {
+                width: 100%;
+            }
+            .otp-confirmation {
+                width: 100%;
+            }
         }
 
-        .otp-text {
-            display: none;
+        /* Media Queries for Mobile Devices */
+        @media (max-width: 480px) {
+            .flex-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+            }
+            .main-content {
+                width: 100%;
+            }
+            .header h1 {
+                font-size: 18px;
+            }
+            .user-list {
+                width: 100%;
+            }
+            .otp-confirmation {
+                width: 100%;
+            }
+            .otp-confirmation h2 {
+                font-size: 20px;
+            }
+            .otp-confirmation p {
+                font-size: 14px;
+            }
+            .otp-confirmation button {
+                width: 100%;
+            }
         }
-        .logo {
-            position: absolute;
-            left: 140px;
-        }
-        .main-content {
-            margin-top: 30px; /* Adjust based on header height */
-        }
-    }
-</style>
-<body class="flex flex-col items-center bg-gradient-to-r from-[#ffffff] to-[#fef6f3] font-['Poppins'] min-h-screen py-8">
-<div class="main-content">
-    <div class="header-container">
-        <!-- Header -->
-        <div class="header">
-            <div class="header-left flex items-center gap-4">
-                <div class="logo flex items-center gap-3">
-                    <a href="#">
-                        <img src="Logo (1).png" alt="Order Status Logo" class="w-8 rounded-lg hover:scale-110">
-                    </a>
-                    <a href="#" class="otp-text1 text-2xl font-bold text-gray-800 hover:text-red-500 transition-colors">OTP Confirmation</a>
+    </style>
+</head>
+<body class="flex justify-between items-start min-h-screen w-[1194px] h-[834px] bg-gradient-to-r from-white via-[#FFFFFF] to-[#FFEBE7]">
+        <!-- Sidebar -->
+        <aside class="w-[96px] h-full flex flex-col justify-between p-4">
+            <div class="w-[64px] h-[64px] flex flex-col gap-10 rounded-2xl">
+                <!-- Additional small sidebar content here -->
+                <div class="flex items-center justify-center gap-2 mt-4">
+                    <img src="Logo.jpg" alt="Order Status Logo" class="w-8 h-8">
+                </div>
+            </div>
+
+            <div class="w-[64px] h-[344px] flex flex-col gap-2 p-2 rounded-[48px] bg-black">
+                <!-- Sidebar inner content here -->
+                <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center gap-2">
+                    <img src="Vector.png" alt="z" class="w-[11.1666px] h-[15.1666px] top-[2.42px] left-[4.42px]">
+                </div>
+                <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center gap-2">
+                    <img src="Vector (1).png" alt="z" class="w-[14.798px] h-[11.263px] top-[4.33px] left-[2.6px]">
+                </div>
+                <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center gap-2">
+                    <img src="Vector (2).png" alt="z" class="w-[11.167px] h-[11.167px] top-[4.42px] left-[4.42px]">
+                </div>
+                <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center gap-2">
+                    <img src="Vector (3).png" alt="z" class="w-4 h-[14px] top-[3px] left-[2px]">
+                </div>
+                <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center gap-2">
+                    <img src="Vector (4).png" alt="z" class="w-[18.021px] h-[14px] top-[3px] left-[1px]">
+                </div>
+                <div class="w-12 h-12 rounded-full bg-[#FF5634] flex items-center justify-center gap-2">
+                    <img src="Vector (8).png" alt="z" class=" relative w-[15px] h-[18px] top-[1px] left-[13px]">
+                    <span class="relative w-[16px] h-[16px] bottom-[17px] left-[4px] flex items-center text-[13px] leading-[16px] tracking-[0%] text-white gap-0 rounded-[16px] bg-[#E10E0E] border-2 border-black px-1 py-0">1</span>
+                </div>
+            </div>
+
+            <div class="w-[64px] h-[120px] flex flex-col gap-2 p-2 rounded-[48px] bg-white">
+                <div class="rounded-full bg-transparent flex items-center justify-center gap-2">
+                    <img src="Frame 8.png" alt="Profile" class="w-12 h-12">
+                </div>
+                <div class="rounded-full bg-transparent flex items-center justify-center gap-2">
+                    <img src="Frame 7 (1).png" alt="Notification" class="w-12 h-12">
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex flex-col flex-1 w-[1098px] h-[834px] gap-0 bg-transparent">
+            <!-- Header -->
+            <header class="w-full h-[96px] flex items-center gap-0 pl-0">
+                <h1 class="items-center justify-center gap-2 text-[32px] font-bold tracking-[-0.03em] font-['DM_Sans'] pl-4">OTP Confirmation</h1>
+            </header>
+
+            <!-- Main Content -->
+            <div class="w-full h-[738px] flex items-start gap-0">
+                <!-- Left Panel (User List) -->
+                <div class="w-[320px] h-[722px] flex flex-col bg-white/60 gap-6 pt-4 pb-4 border-r border-black/10">
+                    <!-- Pending Section -->
+                    <div class="w-[320px] h-[48px] flex items-center justify-between gap-4 px-4">
+                        <h2 class="w-[75px] h-[24px] font-medium text-[20px] leading-[24px] tracking-[-0.01em] flex items-center">
+                            Pending
+                            <span class="ml-2 flex items-center justify-center w-[16px] h-[16px] min-w-[16px] text-[13px] leading-[16px] tracking-[0%] text-white gap-0 rounded-full bg-[#000000] px-1 py-0">1</span>
+                        </h2>
+                        <button class="w-[48px] h-[48px] flex gap-2 justify-center items-center rounded-full border border-black/10">
+                            <div class="w-[24px] h-[24px] flex items-center justify-center">
+                                <img src="search.png" alt="search" class="w-[18px] h-[18px] top-[3px] left-[3px]">
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- User List -->
+                    <div class="w-[320px] h-[704px] flex gap-0 pr-0 pb-4 pl-0">
+                        <div class="divide-y divide-gray-300 w-full">
+                            <!-- Highlighted User -->
+                            <div class="w-[320px] h-[64px] flex items-center gap-2 border-b border-black/10 pt-[12px] pb-[12px] px-4">
+                                <img src="Ellipse 38 (9).png" class="w-[40px] h-[40px] rounded-full">
+                                <div>
+                                    <p class="text-[16px] font-semibold">Nasser Alsubai</p>
+                                    <p class="text-[13px] text-gray-500">9 Feb 2024 — 10:24</p>
+                                </div>
+                                <div class="ml-auto flex items-center space-x-2">
+                                    <span class="w-[8px] h-[8px] bg-red-500 rounded-full"></span>
+                                    <span class="flex items-center justify-center text-black font-medium text-[16px]">674951</span>
+                                </div>
+                            </div>
+
+                            <!-- Other Users -->
+                            <div class="w-[320px] h-[64px] flex items-center gap-2 border-b border-black/10 pt-[12px] pb-[12px] px-4">
+                                <img src="Ellipse 38.png" class="w-[40px] h-[40px] rounded-full">
+                                <div>
+                                    <p class="text-[16px] ">Nguyen, Shane</p>
+                                    <p class="text-[13px] text-gray-500">9 Feb 2024 — 10:20</p>
+                                </div>
+                            </div>
+
+                            <div class="w-[320px] h-[64px] flex items-center gap-2 border-b border-black/10 pt-[12px] pb-[12px] px-4">
+                                <img src="Ellipse 38 (1).png" class="w-[40px] h-[40px] rounded-full">
+                                <div>
+                                    <p class="text-[16px]">Flores, Juanita</p>
+                                    <p class="text-[13px] text-gray-500">9 Feb 2024 — 10:04</p>
+                                </div>
+                            </div>
+
+                            <div class="w-[320px] h-[64px] flex items-center gap-2 border-b border-black/10 pt-[12px] pb-[12px] px-4">
+                                <img src="Ellipse 38 (2).png" class="w-[40px] h-[40px] rounded-full">
+                                <div>
+                                    <p class="text-[16px] ">Miles, Esther</p>
+                                    <p class="text-[13px] text-gray-500">9 Feb 2024 — 09:30</p>
+                                </div>
+                            </div>
+
+                            <div class="w-[320px] h-[64px] flex items-center gap-2 border-b border-black/10 pt-[12px] pb-[12px] px-4">
+                                <img src="Ellipse 38 (3).png" class="w-[40px] h-[40px] rounded-full">
+                                <div>
+                                    <p class="text-[16px] ">Miles, Esther</p>
+                                    <p class="text-[13px] text-gray-500">9 Feb 2024 — 09:26</p>
+                                </div>
+                            </div>
+
+                            <div class="w-[320px] h-[64px] flex items-center gap-2 border-b border-black/10 pt-[12px] pb-[12px] px-4">
+                                <img src="Ellipse 38 (4).png" class="w-[40px] h-[40px] rounded-full">
+                                <div>
+                                    <p class="text-[16px]">Black, Marvin</p>
+                                    <p class="text-[13px] text-gray-500">9 Feb 2024 — 09:20</p>
+                                </div>
+                            </div>
+
+                            <div class="w-[320px] h-[64px] flex items-center gap-2 border-b border-black/10 pt-[12px] pb-[12px] px-4">
+                                <img src="Ellipse 38 (5).png" class="w-[40px] h-[40px] rounded-full">
+                                <div>
+                                    <p class="text-[16px]">Cooper, Kristin</p>
+                                    <p class="text-[13px] text-gray-500">9 Feb 2024 — 09:18</p>
+                                </div>
+                            </div>
+
+                            <div class="w-[320px] h-[64px] flex items-center gap-2 border-b border-black/10 pt-[12px] pb-[12px] px-4">
+                                <img src="Ellipse 38 (6).png" class="w-[40px] h-[40px] rounded-full">
+                                <div>
+                                    <p class="text-[16px]">Flores, Juanita</p>
+                                    <p class="text-[13px] text-gray-500">9 Feb 2024 — 09:07</p>
+                                </div>
+                            </div>
+
+                            <div class="w-[320px] h-[64px] flex items-center gap-2 border-b border-black/10 pt-[12px] pb-[12px] px-4">
+                                <img src="Ellipse 38 (7).png" class="w-[40px] h-[40px] rounded-full">
+                                <div>
+                                    <p class="text-[16px]">Black, Marvin</p>
+                                    <p class="text-[13px] text-gray-500">8 Feb 2024 — 22:20</p>
+                                </div>
+                            </div>
+
+                            <div class="w-[320px] h-[64px] flex items-center gap-2 border-b border-black/10 pt-[12px] pb-[12px] px-4">
+                                <img src="Ellipse 38 (8).png" class="w-[40px] h-[40px] rounded-full">
+                                <div>
+                                    <p class="text-[16px]">Henry, Arthur</p>
+                                    <p class="text-[13px] text-gray-500">8 Feb 2024 — 22:17</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel (OTP Confirmation) -->
+                <div class="w-[762px] h-[722px] flex flex-col items-start bg-white">
+                    <!-- Close Button -->
+                    <button class="self-start text-black p-8 pl-4 font-medium text-[16px] leading-[20px] tracking-[-0.01em] underline decoration-solid decoration-[0px]">Close</button>
+                    <!-- Centered Content -->
+                    <div class="flex flex-col items-center justify-center w-full p-10">
+                        <!-- First Section: Image, Name, and ID -->
+                        <div class="mt-2 w-[602px] h-[176px] flex flex-col items-center mb-2">
+                            <img src="Ellipse 38 (10).png" class="w-[120px] h-[120px] rounded-full">
+                            <h2 class="text-[22px] font-semibold mb-0">Nasser Alsubai</h2>
+                            <p class="text-[16px] text-gray-500">ID: 296571905</p>
+                        </div>
+
+                        <!-- Second Section: OTP Code and Instruction -->
+                        <div class="mt-6 w-[602px] h-[104px] flex flex-col items-center mb-2">
+                            <p class="text-[32px] leading-[40px] tracking-[-0.03em] text-center font-bold text-red-500 mb-4">674951</p>
+                            <p class="text-[16px] leading-[24px] tracking-[-0.01em] text-gray-600 text-center justify-center">
+                                To accept cash transfers, the rider must enter this 6-digit code in their app before you can accept the transaction.
+                            </p>
+                        </div>
+
+                        <!-- Third Section: Amount and Accept Button -->
+                        <div class="mt-6 w-[602px] h-[128px] flex flex-col items-center">
+                            <p class="text-[16px] leading-[24px] tracking-[-0.01em] text-center">The amount you should receive:</p>
+                            <p class="text-[32px] leading-[40px] tracking-[-0.03em] text-center font-bold">$86.60</p>
+                            <button class="mt-4 text-black/40 text-[16px] leading-[24px] tracking-[-0.01em] text-center font-bold w-[230px] h-[48px] bg-black/5 rounded-[32px] px-[32px] cursor-not-allowed">Accept Cash Transfer</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <a href="#" class="otp-text font-bold text-gray-800 hover:text-red-500 transition-colors">OTP Confirmation</a>
-    
-    <!-- Sidebar -->
-    <div class="vertical-sidebar bg-gray-800 rounded-3xl p-2 flex gap-2 shadow-2xl transition-all duration-300">
-        <div class="sidebar-item w-10 h-10 flex justify-center items-center bg-gray-700 rounded-full hover:bg-orange-500">
-            <img src="Vector.png" alt="z" class="w-4 h-4">
-        </div>
-        <div class="sidebar-item w-10 h-10 flex justify-center items-center bg-gray-700 rounded-full hover:bg-orange-500">
-            <img src="Vector (1).png" alt="z" class="w-4 h-4">
-        </div>
-        <div class="sidebar-item w-10 h-10 flex justify-center items-center bg-gray-700 rounded-full hover:bg-orange-500">
-            <img src="Vector (2).png" alt="z" class="w-4 h-4">
-        </div>
-        <div class="sidebar-item w-10 h-10 flex justify-center items-center bg-gray-700 rounded-full hover:bg-orange-600">
-            <img src="Vector (3).png" alt="z" class="w-4 h-4">
-        </div>
-        <div class="sidebar-item w-10 h-10 flex justify-center items-center bg-orange-500 rounded-full hover:bg-orange-500">
-            <img src="Vector (4).png" alt="z" class="w-4 h-4">
-        </div>
-        <div class="sidebar-item w-10 h-10 flex justify-center items-center bg-gray-700 rounded-full hover:bg-orange-600">
-            <img src="Vector (3).png" alt="z" class="w-4 h-4">
-        </div>
-    </div>
-</div>    
-
-    <!-- Profile Sidebar -->
-    <div class="profile-sidebar bg-white rounded-3xl p-2 flex gap-1 transition-all duration-300">
-        <div class="profile-container w-10 h-10 flex justify-center items-center bg-white rounded-full hover:bg-gray-200">
-            <img src="Frame 8.png" alt="Profile" class="w-10.5 h-10.5 rounded-full cursor-pointer">
-        </div>
-        <div class="notification-container w-10 h-10 flex justify-center items-center bg-white rounded-full hover:bg-white">
-            <img src="Frame 7.jpg" alt="Notification" class="w-10.5 h-10.5 cursor cursor-pointer">
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="flex-1 flex w-full max-w-4xl mt-6 bg-white shadow-lg rounded-lg main-content">
-        <!-- Left Panel (User List) -->
-        <div class="w-80 bg-[#fef6f3] rounded-l-lg border-r border-gray-300">
-            <!-- Pending Section -->
-            <div class="flex justify-between items-center p-6 border-b border-gray-300">
-                <h2 class="text-lg font-semibold flex items-center">
-                    Pending
-                    <span class="ml-2 bg-black text-white text-xs font-bold px-2 py-0.5 rounded-full">1</span>
-                </h2>
-                <button class="w-8 h-8 flex justify-center items-center bg-gray-100 rounded-full shadow hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- User List -->
-            <div class="divide-y divide-gray-300">
-                <!-- Highlighted User -->
-                <div class="flex items-center p-4 bg-white">
-                    <img src="Ellipse 38 (9).png" class="w-10 h-10 rounded-full mr-3">
-                    <div>
-                        <p class="text-sm font-semibold">Nasser Alsubai</p>
-                        <p class="text-xs text-gray-500">9 Feb 2024 — 10:24</p>
-                    </div>
-                    <div class="ml-auto flex items-center space-x-2">
-                        <span class="w-2 h-2 bg-red-500 rounded-full"></span>
-                        <span class="text-lg font-semibold">674951</span>
-                    </div>
-                </div>
-
-                <!-- Other Users -->
-                <div class="flex items-center p-4">
-                    <img src="Ellipse 38.png" class="w-10 h-10 rounded-full mr-3">
-                    <div>
-                        <p class="text-sm font-semibold">Nguyen, Shane</p>
-                        <p class="text-xs text-gray-500">9 Feb 2024 — 10:20</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center p-4">
-                    <img src="Ellipse 38 (1).png" class="w-10 h-10 rounded-full mr-3">
-                    <div>
-                        <p class="text-sm font-semibold">Flores, Juanita</p>
-                        <p class="text-xs text-gray-500">9 Feb 2024 — 10:04</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center p-4">
-                    <img src="Ellipse 38 (2).png" class="w-10 h-10 rounded-full mr-3">
-                    <div>
-                        <p class="text-sm font-semibold">Miles, Esther</p>
-                        <p class="text-xs text-gray-500">9 Feb 2024 — 09:30</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center p-4">
-                    <img src="Ellipse 38 (3).png" class="w-10 h-10 rounded-full mr-3">
-                    <div>
-                        <p class="text-sm font-semibold">Miles, Esther</p>
-                        <p class="text-xs text-gray-500">9 Feb 2024 — 09:26</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center p-4">
-                    <img src="Ellipse 38 (4).png" class="w-10 h-10 rounded-full mr-3">
-                    <div>
-                        <p class="text-sm font-semibold">Black, Marvin</p>
-                        <p class="text-xs text-gray-500">9 Feb 2024 — 09:20</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center p-4">
-                    <img src="Ellipse 38 (5).png" class="w-10 h-10 rounded-full mr-3">
-                    <div>
-                        <p class="text-sm font-semibold">Cooper, Kristin</p>
-                        <p class="text-xs text-gray-500">9 Feb 2024 — 09:18</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center p-4">
-                    <img src="Ellipse 38 (6).png" class="w-10 h-10 rounded-full mr-3">
-                    <div>
-                        <p class="text-sm font-semibold">Flores, Juanita</p>
-                        <p class="text-xs text-gray-500">9 Feb 2024 — 09:07</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center p-4">
-                    <img src="Ellipse 38 (7).png" class="w-10 h-10 rounded-full mr-3">
-                    <div>
-                        <p class="text-sm font-semibold">Black, Marvin</p>
-                        <p class="text-xs text-gray-500">8 Feb 2024 — 22:20</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center p-4">
-                    <img src="Ellipse 38 (8).png" class="w-10 h-10 rounded-full mr-3">
-                    <div>
-                        <p class="text-sm font-semibold">Henry, Arthur</p>
-                        <p class="text-xs text-gray-500">8 Feb 2024 — 22:17</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right Panel (OTP Confirmation) -->
-        <div class="flex-1 flex flex-col w-full items-start justify-start right-panel">
-            <button class="self-start text-black p-6 font-bold underline">Close</button>
-            <div class="flex flex-col items-center w-full p-6">
-                <img src="Ellipse 38 (10).png" class="w-20 h-20 rounded-full mb-4">
-                <h2 class="text-xl font-semibold">Nasser Alsubai</h2>
-                <p class="text-sm text-gray-500">ID: 296571905</p>
-                <p class="text-3xl font-bold text-red-500 my-4">674951</p>
-                <p class="text-sm text-gray-600 text-center max-w-sm mb-6">
-                    To accept cash transfers, the rider must enter this 6-digit code in their app before you can accept the transaction.
-                </p>
-                <p class="text-lg font-semibold">The amount you should receive:</p>
-                <p class="text-2xl font-bold">$86.60</p>
-                <button class="mt-6 bg-gray-300 text-gray-500 px-6 py-2 rounded-lg cursor-not-allowed">Accept Cash Transfer</button>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
