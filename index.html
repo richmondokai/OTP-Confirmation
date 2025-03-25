@@ -10,14 +10,27 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
     rel="stylesheet">
     <title>OTP Confirmation Task</title>
+  <style>
+    @media (max-width: 992px) {
+      body {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      
+      .flex-grow {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  </style>
 </head>
-<body class="font-['DM_Sans'] background1 min-h-screen w-full max-w-[100vw] overflow-x-hidden flex flex-col">
+<body class="font-['DM_Sans'] background1 min-h-screen w-full max-w-[100%] overflow-x-hidden flex flex-col">
     <div class="flex h-full flex-col lg:flex-row">
       <!-- Sidebar -->
       <div>
       </div>
       <div
-      class="lg:w-full w-[100%-96px] left-[16px] right-[16px] top-1 lg:h-screen h-16 justify-between rounded-full  bg-white lg:bg-none  flex px-4 py-2 items-center mt-6 lg:max-h-screen lg:overflow-hidden overflow-visible lg:flex-col sm:flex-row flex-row space-y-4 lg:space-y-auto lg:fixed sticky z-20 duration-300 ">        
+      class="lg:w-full w-(calc[100%-96px]) px-4 left-[16px] right-[16px] top-1 lg:h-screen h-16 justify-between rounded-full  bg-white lg:bg-none flex items-center mt-6 lg:max-h-screen lg:flex-col sm:flex-row flex-row lg:fixed sticky z-20">        
       <div class=" h-16 w-16 text-2xl font-bold rounded-full flex items-center justify-center">
           <img src="Logo (1).png" alt="brandLogo" class="w-8 h-8 object-contain">
         </div>
@@ -56,7 +69,7 @@
         </div>
       </div>
   
-      <div class="flex flex-grow flex-col h-full  lg:ml-20">
+      <div class="flex flex-grow flex-col h-full lg:ml-20">
         <!-- Pending Transactions -->
         <div id="mainHeader" class="h-full w-full pt-[16px] md:pt-[24px] pr-[16px] md:pb-[24px] pb-[16px] pl-[16px] lg:top-0 top-12 sticky block z-11 bg-transparent transition-colors duration-300">
           <h2
@@ -65,9 +78,9 @@
           </h2>
         </div>
         <div
-        class=" h-screen gap-0 rounded-[24px] pr-0 flex flex-col md:flex-row min-h-screen ml-2 mr-2 mx-auto  ">
+        class="h-screen gap-0 rounded-[24px] pr-0 flex flex-col md:flex-row min-h-screen ml-2 mr-2 mx-auto">
         <!-- Sidebar (Sticky on Left) -->
-        <div class="w-full md:w-[320px] h-screen md:h-[100vh] gap-6 pt-7 pr-0 pb-1 pl-0 bg-white/60 sticky  z-10">
+        <div class="w-full md:w-[320px] h-screen md:h-[100vh] gap-6 pt-7 pr-0 pb-1 pl-0 bg-white/60 sticky z-10">
           <!-- Header with Pending and Search -->
           <div class="flex justify-between w-full md:w-[100vw] h-12 gap-4 px-4" id="headerSection">
             <h3 class=" font-semibold flex items-center gap-2 text-[20px]">
@@ -233,10 +246,10 @@
 
         <!-- OTP Details (Fixed, No Scroll) -->
         <div
-          class="flex-grow w-full md:w-1/2 h-auto rounded-md gap-2 lg:gap-0 md:px-5 border-l border-black/5 flex flex-col bg-white ">
+          class="flex-grow w-full md:w-1/2 h-auto rounded-md gap-2 lg:gap-0 md:px-5 border-l border-black/5 flex flex-col bg-white">
           <button
             class="self-start text-black font-['DM_Sans'] font-medium text-[16px] leading-5 tracking-[-0.01em] underline mt-8 mb-5 pl-7 md:pl-0">Close</button>
-          <div class="text-center space-y-10 mx-auto max-w-[600px] flex flex-col  overflow-hidden ">
+          <div class="text-center space-y-10 mx-auto max-w-[600px] flex flex-col overflow-hidden">
             <div class="space-y-0">
               <div class="w-[120px] h-[120px] bg-black/5 rounded-full mx-auto overflow-hidden mb-2">
                 <img src="https://day8-task-16yq.vercel.app/432a756d1ebdc6151dac288cfa3ef1f7.png" alt="" class="w-full h-full object-cover">
@@ -251,8 +264,8 @@
                 transaction.
               </p>
             </div>
-            <div class="space-y-0 ">
-              <p class="text-[16px] ">The amount you should receive:</p>
+            <div class="space-y-0">
+              <p class="text-[16px]">The amount you should receive:</p>
               <p class="text-[32px] leading-10 font-bold mb-4">$86.60</p>
               <button class="bg-black/5 text-black/40 font-bold text-[16px] leading-[24px] px-8 py-3 rounded-full cursor-pointer">Accept Cash
                 Transfer</button>
@@ -263,7 +276,7 @@
     </div>
   </div>
   <div
-    class="md:w-auto md:h-auto h-15 gap-2 p-2 rounded-full bg-black text-white fixed bottom-3 left-1/2 transform -translate-x-1/2 p-3 rounded-full flex md:space-x-4 space-x-2 lg:hidden z-20 pointer-events-auto">
+    class="md:w-auto md:h-auto h-15 gap-2 rounded-full bg-black text-white fixed bottom-3 left-1/2 transform -translate-x-1/2 p-2 flex md:space-x-4 space-x-2 lg:hidden z-20 pointer-events-auto">
     <div class="md:w-10 w-8 md:h-10 h-8 bg-gray-800 rounded-full flex items-center justify-center">
       <img src="https://day8-task-16yq.vercel.app/Vector%20(6).png" alt="menuItems">
     </div>
